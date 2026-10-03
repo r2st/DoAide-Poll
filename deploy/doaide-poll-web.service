@@ -1,0 +1,15 @@
+[Unit]
+Description=DoAide Poll Web
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/DoAide-Poll/frontend
+ExecStart=/usr/bin/npx serve -s dist -l tcp://172.18.0.1:3062
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

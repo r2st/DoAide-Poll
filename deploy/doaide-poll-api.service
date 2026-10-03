@@ -1,0 +1,16 @@
+[Unit]
+Description=DoAide Poll API
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/DoAide-Poll/backend
+ExecStart=/opt/DoAide-Poll/backend/venv/bin/uvicorn main:app --host 172.18.0.1 --port 3061
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
